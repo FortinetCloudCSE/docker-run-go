@@ -126,16 +126,16 @@ func StartContainer(ctx context.Context, cli *client.Client, cfg ServerConfig) (
 	}
 
 	// Mount the Hugo configuration file.
-	configPath := filepath.Join(cfg.WatchDir, "hugo.toml")
-	if _, err := os.Stat(configPath); os.IsNotExist(err) {
-		fmt.Printf("Warning: Hugo config file not found at %s. The container may exit if Hugo requires it.\n", configPath)
-	}
-	centralRepoPath := AdjustPathForDocker(configPath)
-	mounts = append(mounts, mount.Mount{
-		Type:   mount.TypeBind,
-		Source: centralRepoPath,
-		Target: "/home/CentralRepo/hugo.toml",
-	})
+	//configPath := filepath.Join(cfg.WatchDir, "hugo.toml")
+	//if _, err := os.Stat(configPath); os.IsNotExist(err) {
+	//	fmt.Printf("Warning: Hugo config file not found at %s. The container may exit if Hugo requires it.\n", configPath)
+	//}
+	//centralRepoPath := AdjustPathForDocker(configPath)
+	//mounts = append(mounts, mount.Mount{
+	//	Type:   mount.TypeBind,
+	//	Source: centralRepoPath,
+	//	Target: "/home/CentralRepo/hugo.toml",
+	//})
 
 	containerConfig := &container.Config{
 		Image: cfg.DockerImage,
