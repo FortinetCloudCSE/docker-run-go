@@ -140,7 +140,7 @@ func StartContainer(ctx context.Context, cli *client.Client, cfg ServerConfig) (
 	containerConfig := &container.Config{
 		Image: cfg.DockerImage,
 		//Cmd:   []string{"server", "--bind", "0.0.0.0", "--liveReload", "--disableFastRender", "--poll"},
-                Cmd:   []string{"server", "--bind", "0.0.0.0"},
+                Cmd:   []string{"server", "--bind", "0.0.0.0", "--noWatch"},
 		Tty:   true,
 		ExposedPorts: nat.PortSet{
 			nat.Port(cfg.ContainerPort + "/tcp"): struct{}{},
